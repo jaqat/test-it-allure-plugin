@@ -1,0 +1,36 @@
+<idea-plugin>
+    <id>com.github.jaqat.test-it-idea-plugin</id>
+    <name>Test-It Allure Annotations</name>
+    <vendor email="afrikanov.andrey@gmail.com" url="https://github.com/jaqat">Java QA Tools</vendor>
+
+    <description><![CDATA[
+    <html>
+        <p>Plugin for creating Allure annotations for autotests linked with TMS 'Test It'</p>
+        <ul>
+            <li>@TmsLink - uses to set TestIt autotest's "external_id"</li>
+            <li>@Link with type "manual" uses to link autotest with manual tests</li>
+        </ul>
+    </html>
+    ]]>
+    </description>
+    <!-- Product and plugin compatibility requirements -->
+    <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectConfigurable
+                groupId="tools"
+                displayName="Test-It Plugin"
+                id="preferences.PluginConfigurable"
+                instance="com.github.jaqat.testit.plugin.settings.PluginConfigurable"/>
+        <projectService serviceImplementation="com.github.jaqat.testit.plugin.settings.PluginSettings"/>
+    </extensions>
+
+    <actions>
+        <action id="TestIt.Create.Autotest.Action"
+                class="com.github.jaqat.testit.plugin.actions.AddTestItAutoTestAnnotationsAction"
+                text="Test-It Autotest Annotations">
+            <add-to-group group-id="GenerateGroup" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
