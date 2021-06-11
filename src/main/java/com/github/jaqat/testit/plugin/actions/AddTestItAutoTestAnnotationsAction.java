@@ -24,8 +24,10 @@ public class AddTestItAutoTestAnnotationsAction extends AnAction {
             );
             autotestSettingsDialog.show();
 
-            PsiMethod testMethod = (PsiMethod) element;
-            AnnotationProcessor.createAutoTestAnnotations(testMethod, autoTestDialogSettings);
+            if (autotestSettingsDialog.isOK()) {
+                PsiMethod testMethod = (PsiMethod) element;
+                AnnotationProcessor.createAutoTestAnnotations(testMethod, autoTestDialogSettings);
+            }
         }
     }
 
