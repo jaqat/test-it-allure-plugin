@@ -11,4 +11,3 @@ allure-results
 *.ipr
 *.iws
 custom_config.properties
-src/main/java/com/zoomint/core/utils/SetConfig.java
