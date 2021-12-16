@@ -52,24 +52,6 @@ public class TestItApiWrapper {
             );
             return null;
         }
-
-    }
-
-    public static void main(String[] args) {
-        PluginSettings settings = new PluginSettings();
-        settings.setServerUrl("https://testit.corp.dev.vtb/");
-        settings.setProjectId(5778);
-        settings.setApiKey("MWpkVnZ0UUhQM2ZtSmVoa0x6");
-
-        TestItApiWrapper wrapper = new TestItApiWrapper(settings);
-
-        AutoTest autoTest = wrapper.createAutoTest(
-                AutoTest.builder()
-                        .projectId(String.valueOf(settings.getProjectId()))
-                        .name("Check")
-                        .build()
-        );
-        System.out.println(autoTest.getId());
     }
 
 }
